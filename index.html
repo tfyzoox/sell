@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Duff</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-content">
+            <h2>Toko<span class="accent">Duff</span></h2>
+            <a href="admin.html" class="btn-outline">Admin Panel</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header class="page-header">
+            <h1>Katalog Produk</h1>
+            <p>Pilih produk favoritmu dan checkout via WhatsApp.</p>
+        </header>
+
+        <div id="product-list" class="grid">
+            <!-- Produk akan dirender oleh JavaScript di sini -->
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+    <script>
+        // Load produk khusus untuk halaman index
+        document.addEventListener('DOMContentLoaded', renderProducts);
+    </script>
+</body>
+</html>
