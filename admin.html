@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-content">
+            <h2>Admin<span class="accent">Panel</span></h2>
+            <a href="index.html" class="btn-outline">Lihat Toko</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="admin-grid">
+            <!-- Kelola Produk -->
+            <section class="card">
+                <h3>Tambah Produk</h3>
+                <form id="form-product" class="admin-form">
+                    <input type="text" id="p-name" placeholder="Nama Produk" required>
+                    <input type="number" id="p-price" placeholder="Harga (Misal: 50000)" required>
+                    <input type="url" id="p-image" placeholder="Link URL Gambar" required>
+                    <button type="submit" class="btn-primary">Tambah ke Katalog</button>
+                </form>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Produk</th>
+                                <th>Harga</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-product-list"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Kelola Pesanan -->
+            <section class="card">
+                <h3>Daftar Pesanan Masuk</h3>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Pembeli</th>
+                                <th>Produk</th>
+                                <th>Status</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-order-list"></tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            renderAdminProducts();
+            renderAdminOrders();
+        });
+
+        document.getElementById('form-product').addEventListener('submit', (e) => {
+            e.preventDefault();
+            addProduct(
+                document.getElementById('p-name').value,
+                document.getElementById('p-price').value,
+                document.getElementById('p-image').value
+            );
+            e.target.reset();
+        });
+    </script>
+</body>
+</html>
